@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src:/app/src # ホストマシンの src ディレクトリをコンテナの /app/src にマウント
+      - ./build/resources:/app/build/resources # ホストマシンの resources ディレクトリをコンテナの /app/build/resources にマウント
+    working_dir: /app # 作業ディレクトリを /app に設定
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev # 開発プロファイルをアクティブにする

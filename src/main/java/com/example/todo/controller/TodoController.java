@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.todo.entity.Todo;
 import com.example.todo.service.TodoService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/api/todos")
 public class TodoController {
+
+    private static final Logger logger = LoggerFactory.getLogger(TodoController.class);
 
     private final TodoService todoService;
 
@@ -22,7 +26,10 @@ public class TodoController {
 
     @GetMapping
     public List<Todo> getAllTodos() {
-        return todoService.getAllTodos();
+        logger.info("TodoController.getAllTodos() が呼ばれました");
+        List<Todo> todos = todoService.getAllTodos();
+        logger.info("TodoService からのレスポンス: {}", todos);
+        return todos;
     }
 
 }

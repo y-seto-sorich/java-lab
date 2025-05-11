@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+    implementation("org.springframework.boot:spring-boot-starter")
+    runtimeOnly("org.postgresql:postgresql")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 	// implementation("org.springframework.boot:spring-boot-starter-thymeleaf")

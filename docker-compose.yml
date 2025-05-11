@@ -9,8 +9,10 @@ services:
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
     volumes:
-      - ./src:/app/src
-      - ./frontend/dist:/app/static
+      - ./src:/app/src # ホストのsrcディレクトリを、コンテナの/app/srcにマウント(DevToolsによるホットリロードのため)
+      - ./frontend/dist:/app/static # ビルドされたフロントエンドファイルをマウント
+      - ./build:/app/build # ホストのbuildディレクトリを、コンテナの/app/buildにマウント(コンパイルされたクラスファイルなどをDevToolsが参照できるようにするため)
+      - ./build/libs/todo-api-0.0.1-SNAPSHOT.jar:/app/app.jar # ホストのJARを、コンテナの/app/app.jarにマウント(コンテナ起動時に、JARファイルを実行するため)
     working_dir: /app
     depends_on:
       - db
@@ -26,3 +28,4 @@ services:
       - db_data:/var/lib/postgresql/data # ホストのdb_dataボリュームをコンテナのデータ領域にマウント
 volumes:
   db_data: # 名前付きボリュームを定義
+

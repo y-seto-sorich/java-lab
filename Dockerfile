@@ -5,7 +5,8 @@ FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
 # Gradleのビルド結果（JARファイル）をコンテナにコピー
-COPY build/libs/*.jar app.jar
+# COPY build/libs/*.jar app.jar
+COPY build/libs/todo-api-0.0.1-SNAPSHOT.jar app.jar
 
 # アプリケーション起動時に実行するコマンド
 ENTRYPOINT ["java", "-jar", "app.jar"]

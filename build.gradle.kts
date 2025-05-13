@@ -30,3 +30,32 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.register("buildFrontend") {
+    group = "build"
+    dependsOn("npmInstall")
+    doLast {
+        exec {
+            commandLine("npm", "run", "build")
+            workingDir = file("frontend")
+        }
+        copy {
+            from("frontend/dist")
+            into("src/main/resources/static")
+        }
+    }
+}
+
+tasks.register("npmInstall") {
+    group = "build"
+    doLast {
+        exec {
+            commandLine("npm", "install")
+            workingDir = file("frontend")
+        }
+    }
+}
+
+tasks.named("processResources").configure {
+    dependsOn("buildFrontend")
+}

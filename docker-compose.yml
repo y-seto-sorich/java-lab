@@ -9,7 +9,7 @@ services:
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
     volumes:
-      - ./src:/app/src # ホストのsrcディレクトリを、コンテナの/app/srcにマウント(DevToolsによるホットリロードのため)
+      - ./backend:/app/backend # ホストのbackendディレクトリを、コンテナの/app/backendにマウント(DevToolsによるホットリロードのため)
       - ./frontend/dist:/app/static # ビルドされたフロントエンドファイルをマウント
       - ./build:/app/build # ホストのbuildディレクトリを、コンテナの/app/buildにマウント(コンパイルされたクラスファイルなどをDevToolsが参照できるようにするため)
       - ./build/libs/todo-api-0.0.1-SNAPSHOT.jar:/app/app.jar # ホストのJARを、コンテナの/app/app.jarにマウント(コンテナ起動時に、JARファイルを実行するため)

@@ -41,7 +41,7 @@ tasks.register("buildFrontend") {
         }
         copy {
             from("frontend/dist")
-            into("src/main/resources/static")
+            into("backend/main/resources/static")
         }
     }
 }
@@ -58,4 +58,11 @@ tasks.register("npmInstall") {
 
 tasks.named("processResources").configure {
     dependsOn("buildFrontend")
+}
+
+sourceSets {
+    main {
+        java.srcDirs("backend/main/java")
+        resources.srcDirs("backend/main/resources")
+    }
 }

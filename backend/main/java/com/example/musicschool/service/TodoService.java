@@ -1,11 +1,11 @@
-package com.example.todo.service;
+package com.example.musicschool.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.todo.entity.Todo;
-import com.example.todo.repository.TodoRepository;
+import com.example.musicschool.entity.Todo;
+import com.example.musicschool.repository.TodoRepository;
 
 @Service
 public class TodoService {

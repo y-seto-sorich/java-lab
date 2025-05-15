@@ -1,4 +1,4 @@
-package com.example.todo.entity;
+package com.example.musicschool.entity;
 
 import java.time.LocalDateTime;
 

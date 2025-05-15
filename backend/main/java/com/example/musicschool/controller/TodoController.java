@@ -1,12 +1,12 @@
-package com.example.todo.controller;
+package com.example.musicschool.controller;
 
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.todo.entity.Todo;
-import com.example.todo.service.TodoService;
+import com.example.musicschool.entity.Todo;
+import com.example.musicschool.service.TodoService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
